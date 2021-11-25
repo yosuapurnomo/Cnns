@@ -13,11 +13,13 @@ class Forward:
         return 1 / (1 + np.exp(-output))
 
     def softmax(self, y):
+        # Y = VARIABLE NILAI TARGET
         output = []
         for i in y:
             output.append(np.exp(i) / np.sum(np.exp(y)))
         return output
 
+    #ENTROPY LOSS
     def error(self, target, output):
         return -(target * np.log10(output))
 

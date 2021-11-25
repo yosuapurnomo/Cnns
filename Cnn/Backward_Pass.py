@@ -1,15 +1,13 @@
 import numpy as np
 
+
 class Backward:
     ln = None
 
     def __init__(self, ln):
         self.ln = ln
 
-
     def deltaWeightSigmoid(self, error, Fy, Fo):
-        print(Fy)
-        print(Fo)
         return self.ln * np.array([(error * Fy * (1 - Fy))]) * Fo
 
     def deltaBiasSigmoid(self, error, Fy):
@@ -17,7 +15,6 @@ class Backward:
 
     def deltaWeightSoftmax(self, error, Fy, Fo, Si):
         output = np.array([])
-        # output = np.array([0] * len(Fy))
         for j in range(len(Fy)):
             for o in Fo:
                 if j == Si:
